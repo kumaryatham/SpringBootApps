@@ -1,0 +1,55 @@
+UPDATE mysql.user SET password=PASSWORD("my-new-password") WHERE User='root';
+FLUSH PRIVILEGES;
+
+mysqladmin.exe -u root shutdown
+
+cd mysqlbin
+mysqld --install
+
+
+1 ) mysql -u root -p
+
+ Older version : GRANT ALL PRIVILEGES ON *.* TO 'pavan'@'localhost' IDENTIFIED BY 'kumar1289';
+2 ) user creation 
+ 
+CREATE USER 'pavan'@'localhost' IDENTIFIED BY 'kumar1289';
+GRANT ALL PRIVILEGES ON *.* TO 'pavan'@'localhost';
+
+3 ) GRANT SELECT ON *.* TO 'username'@'localhost';
+
+4 ) login with new user details 
+
+5 ) CREATE DATABASE dbname;
+
+6 ) USE dbname;
+
+7 ) DROP TABLE tablename;
+
+8 ) DROP DATABASE dbname;
+
+9 ) SELECT user FROM mysql.user GROUP BY user;
+
+10) DELETE FROM mysql.user WHERE user = 'username';
+
+GRANT SELECT, INSERT, DELETE ON alti.* TO pavan@'localhost';
+GRANT SELECT, INSERT, DELETE ON jsondemo.* TO root@'localhost';
+
+SHOW GRANTS FOR 'database_user'@'localhost';
+
+REVOKE ALL PRIVILEGES ON database_name.* FROM 'database_user'@'localhost';
+
+DROP USER 'user'@'localhost'
+
+
+
+
+
+
+
+GRANT ALL PRIVILEGES ON *.* TO 'pavan'@'localhost' IDENTIFIED BY 'kumar1289';
+
+
+
+
+
+

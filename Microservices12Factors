@@ -1,0 +1,57 @@
+1 ) CodeBase -- >  one codebase per app 
+2 ) Dependencies ( Explicitly declare and isolate dependencies )
+
+ In noncontainerized environments, use a configuration management tool (Chef, Puppet, Ansible) to install system dependencies.
+ In a containerized environment, do this in the Dockerfile.
+ 
+3 ) Config
+    Store configuration in the environment
+	
+Use non‑version controlled .env files for local development. Docker supports the loading of these files at runtime.
+Keep all .env files in a secure storage system, such as Vault, to keep the files available to the development teams, but not commited to Git.
+Use an environment variable for anything that can change at runtime, and for any secrets that should not be committed to the shared repository.
+Once you have deployed your application to a delivery platform, use the delivery platform’s mechanism for managing environment variables.
+
+4 ) Backing Services
+Treat backing services as attached resources .
+This ensures that every service is completely portable and loosely coupled to the other resources in the system.
+
+5 ) 5 – Build, Release, Run
+Strictly separate build and run stages .
+we recommend the use of a continuous integration/continuous delivery (CI/CD) tool to automate builds.
+Docker images make it easy to separate the build and run stages. 
+Ideally, images are created from every commit and treated as deployment artifacts.
+
+6 – Processes
+Execute the app in one or more stateless processes
+For microservices, the important point in the Processes factor is that your application needs to be stateless. 
+This makes it easy to scale a service horizontally by simply adding more instances of that service. 
+Store any stateful data, or data that needs to be shared between instances, in a backing service.
+
+7 – Data Isolation
+Each service manages its own data
+As a modification to make the Port binding factor more useful for microservices.
+
+8 – Concurrency
+Scale out via the process model
+The Unix process model is largely a predecessor to a true microservices architecture, 
+insofar as it allows specialization and resource sharing for different tasks within a monolithic application.
+ In a microservices architecture, you can horizontally scale each service independently,
+ to the extent supported by the underlying infrastructure. With containerized services, 
+ you further get the concurrency recommended in the Twelve‑Factor App, for free.
+ 
+9 – Disposability
+Maximize robustness with fast startup and graceful shutdown
+Instances of a service need to be disposable so they can be started, stopped, and redeployed quickly, 
+and with no loss of data. Services deployed in Docker containers satisfy this requirement automatically, 
+as it’s an inherent feature of containers that they can be stopped and started instantly. 
+Storing state or session data in queues or other backing services ensures that a request is handled seamlessly in the event of a container crash.
+We are also proponents of using a backing store to support crash‑only design.
+
+
+ 
+ 
+ 
+
+
+

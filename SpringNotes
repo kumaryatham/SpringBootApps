@@ -1,0 +1,92 @@
+
+Spring Code Structure:
+
+file:///E:/Security/Spring_Boot_Security_Cheat_Sheet.pdf 
+
+Spring properties :
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+https://docs.spring.io/spring-security/site/docs/3.0.x/reference/springsecurity-single.html
+
+Spring Security Models :
+------------------------
+
+https://spring.io/guides/topicals/spring-security-architecture
+
+https://www.callicoder.com/spring-boot-spring-security-jwt-mysql-react-app-part-2/
+
+Spring Cloud Security: 
+
+
+https://developer.okta.com/blog/2019/08/28/reactive-microservices-spring-cloud-gateway
+
+
+
+
+
+create table user(
+    id  NUMERIC NOT NULL,
+    user_name varchar(150) NOT NULL,
+    password varchar(100) NOT NULL,
+    active boolean NOT NULL,
+	roles varchar(150)
+);
+
+
+
+
+	
+
+Avoid Basic authentication configuration :
+------------------------------------------	
+	
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
+or
+@EnableAutoConfiguration(exclude = { SecurityAutoConfiguration.class })
+
+
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+    @Configuration
+    @EnableWebSecurity
+    @EnableAutoConfiguration(exclude = { 
+            org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class 
+        })
+    public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+        @Override
+        protected void configure(HttpSecurity httpSecurity) throws Exception {
+            httpSecurity.authorizeRequests().anyRequest().authenticated();
+            httpSecurity.headers().cacheControl();
+        }
+    }
+	
+--------------------------------------------
+
+http://localhost:8787/
+
+http://localhost:8787/user
+
+
+LDAP : Lightweight directory access protocol 
+--------------------------------------------
+
+https://spring.io/guides/gs/authenticating-ldap/
+
+http://localhost:8686/login
+
+or
+
+http://localhost:8686/
+
+
+UserName : ben
+password : benspassword 
+
+---------------------------------------------
+
+

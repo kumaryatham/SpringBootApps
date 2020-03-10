@@ -1,0 +1,145 @@
+mkdir folder
+cd folder
+git init
+git add -A
+git commit -m "MYFirst commit"
+git status
+
+
+http://localhost:8888/limits-service/default
+http://localhost:8888/limits-service/dev
+http://localhost:8888/limits-service/qa
+
+http://localhost:8000/curr-exc/from/USD/to/INR
+http://localhost:8000/curr-exc/from/EUR/to/INR
+
+http://localhost:8100/curr-con/from/USD/to/INR/quan/1000
+
+http://localhost:8100/curr-con-feign/from/USD/to/INR/quan/1000/
+
+Zull Proxy
+-------
+
+Step 1 : http://localhost:8765/curr-exc-service/curr-exc/from/USD/to/INR
+
+Step 2:  http://localhost:8765/curr-con-service/curr-con-feign/from/USD/to/INR/quan/1000/
+
+
+RabbitMQ
+----------
+https://www.devglan.com/spring-boot/springboot-rabbitmq-example
+https://www.rabbitmq.com/tutorials/tutorial-three-spring-amqp.html
+https://spring.io/guides/gs/messaging-rabbitmq/
+https://thepracticaldeveloper.com/2016/10/23/produce-and-consume-json-messages-with-spring-boot-amqp/
+https://sivalabs.in/2018/02/springboot-messaging-rabbitmq/
+
+https://www.journaldev.com/11713/spring-amqp-rabbitmq-example
+
+
+Data format : {notificationType='Email',msg='Welcome Demo '}
+
+# For UI enable purpose execute on rabbit-mq management 
+
+rabbitmq-plugins.bat enable rabbitmq_management
+
+rabbitmq-server start
+rabbitmqctl.bat stop
+rabbitmqctl.bat status
+rabbitmq-service.bat start
+
+
+    rabbitmq-service stop
+    rabbitmq-service remove
+    rabbitmq-service install
+    rabbitmq-service start
+
+http://localhost:15672/#/
+
+UserName : guest
+Password : guest 
+
+To move messages, the shovel plugin must be enabled, try:
+
+ rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_management
+
+    rabbitmq-plugins.bat enable rabbitmq_shovel
+    rabbitmq-plugins.bat enable rabbitmq_shovel_management
+
+
+<dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>2.9.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>2.9.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.9.6</version>
+    </dependency>
+
+
+
+MSQ project URLS
+----------------
+
+http://localhost:8080/userservice/add
+
+// Postman json object and place raw data section send the request to above URL
+
+{
+"supplierId":"1234",
+"supplierName":"Alti",
+"supplierUrl":"http://demo.com"
+
+}
+
+
+Erlang
+The RabbitMQ server program is written in the Erlang programming language and is built on the Open Telecom Platform framework for clustering and failover. Client libraries to interface with the broker are available for all major programming languages.
+
+
+Zipkin URL 
+----------
+
+http://localhost:9411/zipkin/
+
+Sprig Cloud Bus 
+----------------
+
+We have to send 
+
+// Below 2.0 
+http://localhost:8181/bus/refresh  
+//Above 2.0
+http://localhost:8181/actuator/bus-refresh
+
+
+--------------------
+
+SagaPattern 
+-------------
+https://github.com/berndruecker/trip-booking-saga-java
+
+
+PCF
+---
+
+Cups and credhub and vcap services 
+
+https://pivotal.io/application-modernization-recipes/security/securing-applications-with-credhub
+
+
+ContentNegotiation : json / xml 
+
+https://javainterviewpoint.com/jax-rs-rest-produces-both-xml-and-json-example/
+
+
+
+
+
+

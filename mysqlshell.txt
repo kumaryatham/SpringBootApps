@@ -1,0 +1,71 @@
+Step1 : \connect root@localhost:3306/jsondemo
+Creating a session to 'root@localhost:3306/jsondemo'
+Please provide the password for 'root@localhost:3306': *********
+Save password for 'root@localhost:3306'? [Y]es/[N]o/Ne[v]er (default No): Y
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 256
+Server version: 8.0.18 MySQL Community Server - GPL
+Default schema set to `jsondemo`.
+
+
+util.importJson("E:\\Demo.json")
+
+util.import_json("E:\\Demo.json", {"schema": "jsondemo", "collection": "products"});
+util.importJson("E://Demo.json", {schema: "jsondemo", table: "products", tableColumn: "json_data", convertBsonOid: true,extractOidTime: "idTime"});
+mysql root@localhost/jsondemo --import E:\\Demo.json
+mysqlsh root@localhost:3306 --import E:\\Demo.json products json_data --schema=jsondemo
+
+ mysql -h localhost -u root --password
+
+CREATE TABLE `jsondemo`.`products` (
+   json_data JSON,
+   id INTEGER AUTO_INCREMENT PRIMARY KEY 
+) CHARSET utf8mb4 ENGINE=InnoDB;
+
+https://books.google.co.in/books?id=11ptDwAAQBAJ&pg=PA131&lpg=PA131&dq=how+to+shift+
+to+classic+protocol+to+xprotocol&source=bl&ots=wM-duQxGlp&sig=ACfU3U0-pbAze6j6Ef6IEZExcXeB7aUWdQ&hl=en
+&sa=X&ved=2ahUKEwiw9Ky6u9XmAhWHTX0KHWD4Cf8Q6AEwAHoECAgQAQ#v=onepage&q=how%20to%20shift%20to%20classic%20protocol%20to%20xprotocol&f=false
+
+https://dev.mysql.com/doc/mysql-shell/8.0/en/mysqlsh.html#option_mysqlsh_dba
+
+https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-json.html
+
+https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-sessions.html
+
+
+ commands : shell.status()
+ 
+ commands : session 
+
+ MySQL  localhost:3306 ssl  jsondemo  JS > shell.status()
+MySQL Shell version 8.0.18
+
+Session type:                 Classic
+Connection Id:                256
+Current schema:               jsondemo
+Current user:                 root@localhost
+SSL:                          Cipher in use: TLS_AES_256_GCM_SHA384 TLSv1.3
+Using delimiter:              ;
+Server version:               8.0.18 MySQL Community Server - GPL
+Protocol version:             classic 10
+Client library:               8.0.18
+Connection:                   localhost via TCP/IP
+TCP port:                     3306
+Server characterset:          utf8mb4
+Schema characterset:          utf8mb4
+Client characterset:          utf8mb4
+Conn. characterset:           utf8mb4
+Compression:                  Disabled
+Uptime:                       2 days 13 hours 40 min 52.0000 sec
+
+Threads: 4  Questions: 8938  Slow queries: 2  Opens: 438  Flush tables: 3  Open tables: 344  Queries per second avg: 0.040
+
+
+---------------------
+
+\connect mysql://root@localhost:3306
+\connect --mysqlx root@localhost:3306
+\connect mysqlx://root@localhost:3306
+shell.connect('mysqlx://root@localhost:3306')
+
+plugin-load=mysqlx=mysqlx.so
