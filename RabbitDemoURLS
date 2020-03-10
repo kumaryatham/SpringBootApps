@@ -1,0 +1,18 @@
+ 
+ Direct :
+ 
+ http://localhost:8999/javainuse-rabbitmq/direct/producer?exchangeName=direct-exchange&routingKey=admin&messageData=HiWelcometoAdminQueue
+ 
+ Topic  :
+ 
+ http://localhost:8999//javainuse-rabbitmq/topic/producer?exchangeName=topic-exchange&routingKey=queue.admin&messageData=HelloWorldJavaInUse
+ http://localhost:8999//javainuse-rabbitmq/topic/producer?exchangeName=topic-exchange&routingKey=queue.finance&messageData=HelloFianceQueue
+ http://localhost:8999//javainuse-rabbitmq/topic/producer?exchangeName=topic-exchange&routingKey=queue.*&messageData=HelloSendingAllQueues
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
